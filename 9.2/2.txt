@@ -1,0 +1,2 @@
+Error input data! You should enter 1 arguments ! <file name> 
+ example:input.txt
