@@ -1,1 +1,1 @@
-Error: input.txt is not open
+Error: input.txt or output.txt is not open

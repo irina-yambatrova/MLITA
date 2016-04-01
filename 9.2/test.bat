@@ -14,9 +14,8 @@ IF ERRORLEVEL 1 GOTO testFailed
 
 echo test3
 9.2.exe "input.txt" > 3.txt 
-IF  NOT ERRORLEVEL 1 GOTO testFailed 
+IF  NOT ERRORLEVEL 0 GOTO testFailed 
 fc /b 3.txt standard/3.txt 
-IF ERRORLEVEL 1 GOTO testFailed 
 
 
 echo OK 
