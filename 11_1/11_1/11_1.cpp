@@ -26,14 +26,14 @@ int FindArea(int ax, int ay, int bx, int by, int cx, int cy)
 	
 }
 
-bool CheckPoint(int &ax, int &ay, int &bx, int &by, int &cx, int &cy, int &px, int &py)
+bool CheckPoint(int ax, int ay, int bx, int by, int cx, int cy, int px, int py)
 {
-	int mainArea = FindArea(ax, ay, bx, by, cx, cy),
+	int areaOfTriandle = FindArea(ax, ay, bx, by, cx, cy),
 		areaWithPoint1 = FindArea(ax, ay, bx, by, px, py),
 		areaWithPoint2 = FindArea(bx, by, cx, cy, px, py),
 		areaWithPoint3 = FindArea(cx, cy, ax, ay, px, py);
 
-	if (areaWithPoint1 + areaWithPoint2 + areaWithPoint3 - mainArea > 0)
+	if (areaWithPoint1 + areaWithPoint2 + areaWithPoint3 - areaOfTriandle > 0)
 	{
 		return false;
 	}
@@ -52,23 +52,9 @@ void ReadInputAndOutputData(ifstream &inputf, ofstream &outputf)
 	}
 
 	int ax, ay, bx, by, cx, cy, px, py;
-	inputf >> ax;
-	inputf >> ay;
-	inputf >> bx;
-	inputf >> by;
-	inputf >> cx;
-	inputf >> cy;
-	inputf >> px;
-	inputf >> py;
+	inputf >> ax >> ay  >> bx >> by >> cx >> cy >> px >> py;
+	outputf << (CheckPoint(ax, ay, bx, by, cx, cy, px, py) ? "In" : "Out");
 
-	if (!CheckPoint(ax, ay, bx, by, cx, cy, px, py))
-	{
-		outputf << "Out";
-	}
-	else
-	{
-		outputf << "In";
-	}
 	inputf.close();
 	outputf.close();
 }
