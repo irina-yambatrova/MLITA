@@ -1,4 +1,4 @@
-﻿/*
+﻿/*Треугольник и точка (5)
 В декартовой системе координат на плоскости заданы координаты вершин треугольника и еще
 одной точки. Определить, принадлежит ли эта точка треугольнику.
 Ввод из файла INPUT.TXT. В четырех строках находятся пары чисел - координаты точек.
@@ -7,7 +7,7 @@
 Вывод в файл OUTPUT.TXT. Вывести In, если точка находится внутри треугольника, или Out -
 если снаружи.
 Ограничения: координаты вершин - целые числа, для любой точки выполняются следующие
-условия: -109 ≤ x, y ≤ 109, время 1 с.
+условия: -1000000000 ≤ x, y ≤ 100000000, время 1 с.
 */
 
 #include "stdafx.h"
@@ -33,13 +33,13 @@ bool CheckPoint(int &ax, int &ay, int &bx, int &by, int &cx, int &cy, int &px, i
 		areaWithPoint2 = FindArea(bx, by, cx, cy, px, py),
 		areaWithPoint3 = FindArea(cx, cy, ax, ay, px, py);
 
-	if (areaWithPoint1 + areaWithPoint2 + areaWithPoint3 - mainArea <= 0)
+	if (areaWithPoint1 + areaWithPoint2 + areaWithPoint3 - mainArea > 0)
 	{
-		return true;
+		return false;
 	}
 	else
 	{
-		return false;
+		return true;
 	}
 }
 
@@ -61,7 +61,6 @@ void ReadInputAndOutputData(ifstream &inputf, ofstream &outputf)
 	inputf >> px;
 	inputf >> py;
 
-	CheckPoint(ax, ay, bx, by, cx, cy, px, py);
 	if (!CheckPoint(ax, ay, bx, by, cx, cy, px, py))
 	{
 		outputf << "Out";
