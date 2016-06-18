@@ -1,9 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "AppMenu.h"
-#include "TextBox.h"
-#include "ResultBox.h"
-#include "Lexer.h"
 #include "11_1.h"
 
 class CAppWindow : public sf::RenderWindow
@@ -41,8 +38,6 @@ private:
     size_t m_saveActionId = 0;
 
 	std::shared_ptr<CPointInTriangle> m_pointInTriangle;
-	std::shared_ptr<CResultBox> m_resultBox;
-	std::vector<SErrorPos> m_error;
 	bool m_hasParser = false;
 	sf::Text m_text;
 	sf::View m_view;
